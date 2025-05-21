@@ -19,3 +19,5 @@ Full precision RMS norm
 # Possible Improvements with Quantization
 - Use QAT for RMSNorm-aware weight/activation adjustment.
     - QAT simulates low-precision arithmetic (e.g., int8) during training by inserting "fake quantization" operations (rounding + clamping) in the forward pass. Gradients are computed using high-precision values to maintain stability.
+- Mixed precision: keep RMSNorm internal math in float16, rest in int8.
+- maybe use outlier-aware quantization by clipping outliers
